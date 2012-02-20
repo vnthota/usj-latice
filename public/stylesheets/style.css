@@ -1,0 +1,54 @@
+/*
+	My Custome Stylesheet
+	
+*/
+
+/* First, pull in Bootstrap's stylesheet */
+@import url(bootstrap.css);
+
+/* Now my custom styles */
+
+body {
+	padding-top: 60px;
+    padding-bottom: 40px;
+	font-family: "Lato", Helvetica, sans-serif;
+	font-size: 13px;
+	background-image:url(../images/cross_scratches.png);
+}
+
+.sidebar-nav {
+       padding: 9px 0;
+}
+
+h1{
+	font-family: "Linden+Hill";
+}
+
+h2 {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-weight: 300;
+	font-size: 36px;
+	color:#00a950;
+}
+
+h3{
+	font-weight: 400;
+	margin-top: 10px;
+}
+
+.hero-unit p{
+	font-weight: 400;
+}
+
+.hero-unit h1{
+	color: #00a950;
+}
+
+p{
+	font-size: 13px;
+}
+
+.thumbnails{
+	list-style: none;
+}
