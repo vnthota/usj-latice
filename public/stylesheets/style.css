@@ -36,6 +36,11 @@ h3{
 	margin-top: 10px;
 }
 
+h4{
+	font-weight: 300;
+	color: #ccc;
+}
+
 .hero-unit p{
 	font-weight: 400;
 }
@@ -50,4 +55,21 @@ p{
 
 .thumbnails{
 	list-style: none;
+}
+
+.footer{
+	background-color: #F5F5F5;
+	margin-top: 45px;
+	padding: 35px 0 0;
+	padding-top: 35px;
+	padding-right: 0px;
+	padding-left: 0px;
+	border-top-width: 3px;
+	border-top-style: solid;
+	border-top-color: #ccc;
+}
+
+.footer p{
+	font-size: 12px;
+	color: #555;
 }

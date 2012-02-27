@@ -14,8 +14,9 @@
 
     <!-- Le styles -->
     <link href="stylesheets/style.css" rel="stylesheet">
+	<link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Linden+Hill' rel='stylesheet' type='text/css'>
-    <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
+	<link href="scripts/google-code-prettify/prettify.css" rel="stylesheet">
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="images/favicon.ico">
@@ -61,7 +62,7 @@
     <div class="container-fluid">
 		<div class="row-fluid">
           <div class="span6">
-			<img src="images/logo_03.png" alt>
+			<img src="images/logo_03.png" alt="">
 		  </div>
 		  <div class="span6">
 			<div id="myCarousel" class="carousel slide">
@@ -108,8 +109,10 @@
 		    </div>
             <div class="span8">
               <h2>Overview</h2>
-              <p>The aim of the Learning and Teaching in Computing and Engineering  (LaTiCE) conference is to comprehensively review current practices and the research now being done in computing and engineering education, and to facilitate introductions for potential partners and themes for future international collaboration and research in the field. The conference will focus on the unique challenges of learning and teaching in multi-cultural contexts in universities and high schools and emphasize innovative and emergent practices that are informed by pragmatic scholarship. <br><br>
-			The conference is jointly organized by the School of Intelligent Systems and Technology, University of Saint Joseph, Macau, and Uppsala Computing Education Research Group (UpCERG), Uppsala University, Uppsala, Sweden. The conference is co-sponsored by the Special Technical Community for Education Research (STC Education) which is an IEEE Computer Society initiative to connect those interested in all forms of educational research and pedagogy in the field of computing and engineering.<br><br>
+              <p>The conference is jointly organized by the School of Intelligent Systems and Technology, University of Saint Joseph, Macau, and Uppsala Computing Education Research Group (UpCERG), Uppsala University, Uppsala, Sweden. The conference is technically co-sponsored by the Special Technical Community for Education Research (STC Education) which is an IEEE Computer Society initiative to connect those interested in all forms of educational research and pedagogy in the field of computing and engineering.<br><br>
+	
+	The aim of the Learning and Teaching in Computing and Engineering  (LaTiCE) conference is to comprehensively review current practices and the research now being done in computing and engineering education, and to facilitate introductions for potential partners and themes for future international collaboration and research in the field. The conference will focus on the unique challenges of learning and teaching in multi-cultural contexts in universities and high schools and emphasize innovative and emergent practices that are informed by pragmatic scholarship. <br><br>
+			
 			The 4-day conference will include a Doctoral consortium and a 2½-day gathering for presentation of research papers, practice sharing papers, work in progress papers, group discussions, display of posters and demos.
 			</p>
             </div>
@@ -197,24 +200,34 @@
 				</div>
 			</div>
 		  </div>
-		
+		<footer class="footer">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<small class="pull-right"><a href="#">Back to top</a></small>
+					<p>&copy; COPYRIGHT 2012 USJ University Of Saint Joseph.</p>
+					<p>	ALL RIGHTS RESERVED. BY USJ TED.</p>
+					<h4>Web design and development: <br>Varun Thota<br>
+						<a href="http://www.varunthota.com" target="_blank">
+						<img src="images/vtlogo.png" alt="Online portfolio | Varun Thota">
+					</a></h4>
+					</p>
+				</div>
+			</div>
+		</footer>
     </div>
-	<hr>
-    <footer>
-		<p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; Company 2012</p>
-      </footer>
+    
+	
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="scripts/bootstrap.js"></script>
-	<script src="scripts/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
 		   $('.carousel').carousel();
-		});
+			$(".collapse").collapse()
+			})();
 	</script>
 		
   </body>
