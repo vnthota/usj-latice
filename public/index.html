@@ -25,7 +25,15 @@
   </head>
 
   <body>
-
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -183,38 +191,10 @@
 				</script>
 			</div>
 			<div class="span6">
-				
 				<h3>Facebook</h3>
-				<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-				<script>
-				new TWTR.Widget({
-				  version: 2,
-				  type: 'search',
-				  search: '#smwhk',
-				  interval: 30000,
-				  title: 'What people are saying about',
-				  subject: 'Social Media Week',
-				  width: 320,
-				  height: 350,
-				  theme: {
-				    shell: {
-				      background: '#d4d4d4',
-				      color: '#333'
-				    },
-				    tweets: {
-				      background: '#f5f5f5',
-				      color: '#333333',
-				      links: '#1985b5'
-				    }
-				  },
-				  features: {
-				    scrollbar: true,
-				    loop: false,
-				    live: true,
-				    behavior: 'default'
-				  }
-				}).render().start();
-				</script>
+				<div class="fb-like-box" data-href="https://www.facebook.com/pages/IAS-Institute-for-Advanced-Studies-of-the-University-of-Saint-Joseph/171200639662779" data-width="320" data-show-faces="false" data-border-color="#ccc" data-stream="true" data-header="true">
+					
+				</div>
 			</div>
 		  </div>
 		
@@ -236,6 +216,6 @@
 		   $('.carousel').carousel();
 		});
 	</script>
-	</script>
+		
   </body>
 </html>
