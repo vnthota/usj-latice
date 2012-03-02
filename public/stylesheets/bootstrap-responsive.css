@@ -173,9 +173,7 @@
   .offset3 {
     margin-left: 206px;
   }
-  .offset4 {
-    margin-left: 268px;
-  }
+
   .offset5 {
     margin-left: 330px;
   }
@@ -296,6 +294,12 @@
     position: static;
     margin-bottom: 18px;
   }
+
+  .sidebar-nav-fixed {
+	position: static;
+	width: 100%;
+  }	
+	
   .navbar-fixed-top .navbar-inner {
     padding: 5px;
   }
@@ -330,8 +334,8 @@
   }
   .navbar .nav > li > a, .navbar .dropdown-menu a {
     padding: 6px 15px;
-    font-weight: bold;
-    color: #999999;
+    font-weight: 300;
+    color: #00a950;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -398,6 +402,7 @@
   }
 }
 @media (min-width: 1200px) {
+	
   .row {
     margin-left: -30px;
     *zoom: 1;
@@ -492,6 +497,10 @@
   }
   .row-fluid:after {
     clear: both;
+  }
+  .row-fluid > [class*="span8 span-fixed-sidebar"] {
+    float: left;
+    margin-left: 28.564103%;
   }
   .row-fluid > [class*="span"] {
     float: left;
