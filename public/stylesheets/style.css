@@ -84,7 +84,6 @@ p{
 }
 
 .footer{
-	background-color: #F5F5F5;
 	margin-top: 45px;
 	padding: 35px 0 0;
 	padding-top: 35px;
@@ -92,7 +91,7 @@ p{
 	padding-left: 0px;
 	border-top-width: 3px;
 	border-top-style: solid;
-	border-top-color: #ccc;
+	border-top-color: #00a950;
 }
 
 .footer p{
