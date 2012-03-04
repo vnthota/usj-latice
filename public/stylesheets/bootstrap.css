@@ -2651,8 +2651,8 @@ button.btn.small, input[type="submit"].btn.small {
   color: #ccc;
   text-decoration: none;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 14px;
+  font-weight: 400;
 }
 .navbar .nav > li > a:hover {
   background-color: transparent;
