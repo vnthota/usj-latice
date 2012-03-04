@@ -11,7 +11,7 @@ body {
 	padding-top: 60px;
     padding-bottom: 40px;
 	font-family: "Lato", Helvetica, sans-serif;
-	font-size: 13px;
+	font-size: 14px;
 	background-image:url(../images/cross_scratches.png);
 }
 
@@ -36,8 +36,8 @@ h1{
 h2 {
 	margin-top: 25px;
 	margin-bottom: 20px;
-	font-weight: 300;
-	font-size: 36px;
+	font-weight: 400;
+	font-size: 32px;
 	color:#00a950;
 }
 
@@ -64,7 +64,7 @@ section{
 }
 
 p{
-	font-size: 13px;
+	font-size: 14px;
 }
 
 .thumbnails{
