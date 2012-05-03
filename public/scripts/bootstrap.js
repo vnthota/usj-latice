@@ -238,8 +238,10 @@
     })
   })
 
-}( window.jQuery );/* ==========================================================
- * bootstrap-carousel.js v2.0.1
+}( window.jQuery );
+
+/* ==========================================================
+ * bootstrap-carousel.js v2.0.3
  * http://twitter.github.com/bootstrap/javascript.html#carousel
  * ==========================================================
  * Copyright 2012 Twitter, Inc.
@@ -258,23 +260,30 @@
  * ========================================================== */
 
 
-!function( $ ){
+!function ($) {
 
-  "use strict"
+  "use strict"; // jshint ;_;
+
 
  /* CAROUSEL CLASS DEFINITION
   * ========================= */
 
   var Carousel = function (element, options) {
     this.$element = $(element)
-    this.options = $.extend({}, $.fn.carousel.defaults, options)
+    this.options = options
     this.options.slide && this.slide(this.options.slide)
+    this.options.pause == 'hover' && this.$element
+      .on('mouseenter', $.proxy(this.pause, this))
+      .on('mouseleave', $.proxy(this.cycle, this))
   }
 
   Carousel.prototype = {
 
-    cycle: function () {
-      this.interval = setInterval($.proxy(this.next, this), this.options.interval)
+    cycle: function (e) {
+      if (!e) this.paused = false
+      this.options.interval
+        && !this.paused
+        && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
       return this
     }
 
@@ -299,7 +308,8 @@
       return this.slide(pos > activePos ? 'next' : 'prev', $(children[pos]))
     }
 
-  , pause: function () {
+  , pause: function (e) {
+      if (!e) this.paused = true
       clearInterval(this.interval)
       this.interval = null
       return this
@@ -322,8 +332,7 @@
         , direction = type == 'next' ? 'left' : 'right'
         , fallback  = type == 'next' ? 'first' : 'last'
         , that = this
-
-      if (!$next.length) return
+        , e = $.Event('slide')
 
       this.sliding = true
 
@@ -331,24 +340,28 @@
 
       $next = $next.length ? $next : this.$element.find('.item')[fallback]()
 
-      if (!$.support.transition && this.$element.hasClass('slide')) {
-        this.$element.trigger('slide')
-        $active.removeClass('active')
-        $next.addClass('active')
-        this.sliding = false
-        this.$element.trigger('slid')
-      } else {
+      if ($next.hasClass('active')) return
+
+      if ($.support.transition && this.$element.hasClass('slide')) {
+        this.$element.trigger(e)
+        if (e.isDefaultPrevented()) return
         $next.addClass(type)
         $next[0].offsetWidth // force reflow
         $active.addClass(direction)
         $next.addClass(direction)
-        this.$element.trigger('slide')
         this.$element.one($.support.transition.end, function () {
           $next.removeClass([type, direction].join(' ')).addClass('active')
           $active.removeClass(['active', direction].join(' '))
           that.sliding = false
           setTimeout(function () { that.$element.trigger('slid') }, 0)
         })
+      } else {
+        this.$element.trigger(e)
+        if (e.isDefaultPrevented()) return
+        $active.removeClass('active')
+        $next.addClass('active')
+        this.sliding = false
+        this.$element.trigger('slid')
       }
 
       isCycling && this.cycle()
@@ -362,20 +375,21 @@
  /* CAROUSEL PLUGIN DEFINITION
   * ========================== */
 
-  $.fn.carousel = function ( option ) {
+  $.fn.carousel = function (option) {
     return this.each(function () {
       var $this = $(this)
         , data = $this.data('carousel')
-        , options = typeof option == 'object' && option
+        , options = $.extend({}, $.fn.carousel.defaults, typeof option == 'object' && option)
       if (!data) $this.data('carousel', (data = new Carousel(this, options)))
       if (typeof option == 'number') data.to(option)
       else if (typeof option == 'string' || (option = options.slide)) data[option]()
-      else data.cycle()
+      else if (options.interval) data.cycle()
     })
   }
 
   $.fn.carousel.defaults = {
     interval: 5000
+  , pause: 'hover'
   }
 
   $.fn.carousel.Constructor = Carousel
@@ -394,7 +408,9 @@
     })
   })
 
-}( window.jQuery );/* =============================================================
+}(window.jQuery);
+
+/* =============================================================
  * bootstrap-collapse.js v2.0.1
  * http://twitter.github.com/bootstrap/javascript.html#collapse
  * =============================================================
@@ -1716,3 +1732,65 @@
   })
 
 }( window.jQuery );
+
+/* ===================================================
+ * bootstrap-transition.js v2.0.3
+ * http://twitter.github.com/bootstrap/javascript.html#transitions
+ * ===================================================
+ * Copyright 2012 Twitter, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================== */
+
+
+!function ($) {
+
+  $(function () {
+
+    "use strict"; // jshint ;_;
+
+
+    /* CSS TRANSITION SUPPORT (http://www.modernizr.com/)
+     * ======================================================= */
+
+    $.support.transition = (function () {
+
+      var transitionEnd = (function () {
+
+        var el = document.createElement('bootstrap')
+          , transEndEventNames = {
+               'WebkitTransition' : 'webkitTransitionEnd'
+            ,  'MozTransition'    : 'transitionend'
+            ,  'OTransition'      : 'oTransitionEnd'
+            ,  'msTransition'     : 'MSTransitionEnd'
+            ,  'transition'       : 'transitionend'
+            }
+          , name
+
+        for (name in transEndEventNames){
+          if (el.style[name] !== undefined) {
+            return transEndEventNames[name]
+          }
+        }
+
+      }())
+
+      return transitionEnd && {
+        end: transitionEnd
+      }
+
+    })()
+
+  })
+
+}(window.jQuery);
